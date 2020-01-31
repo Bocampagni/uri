@@ -2,36 +2,19 @@
 
 package uri;
 
-
+import java.io.IOException;
 
 public class Main {
  
-    public static void main(String[] args){ 
+    public static void main(String[] args) throws IOException {
     	
-    	
-    	calcularHora(217830);
-    	
-    	
+           	for(int i = 1; i < 10; i+=2) {
+           		for(int c = 7; c > 4; c--) {
+           			System.out.println("I=" + i + " J=" + c);
+           		}
+           	}
+ 
     }
-    
-    static void calcularHora(double num) {
-    	
-    	
-    	
-    	
-    	int hora = (int) num / 3600;
-    	
-    	num = num - hora * 3600;
-    	
-    	int minuto = (int) num / 60;
-    	num = num - minuto * 60;
-    	
-    	int segundo = (int) num;
-    	
-    	
-    	System.out.println(hora + "h " + minuto + "m " + segundo + "s");
-    	  	
-    	
-    }
+ 
 }
 
