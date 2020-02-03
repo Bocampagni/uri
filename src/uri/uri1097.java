@@ -4,7 +4,7 @@ package uri;
 
 import java.io.IOException;
 
-public class Main {
+public class uri1097 {
  
     public static void main(String[] args) throws IOException {
     	int x = 0;
