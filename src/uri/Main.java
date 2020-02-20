@@ -5,65 +5,39 @@ package uri;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.Scanner;
 
 public class Main {
  
     public static void main(String[] args) throws IOException {
+    	Locale.setDefault(Locale.US);
     	Scanner sc = new Scanner(System.in);
-    	List<Integer> listaDeInteiros = new ArrayList<Integer>();
-    	int casoDeTeste = sc.nextInt();
-    	int contador = 0;
-		int x,y;
-		
-    	for (int i = 0; i < casoDeTeste; i++) {
-    		
-    		x = sc.nextInt();
-    		y = sc.nextInt();
     	
-    		if(x + 1 == y || y + 1 == x) {
-    			listaDeInteiros.add(contador);
-    		}
+    	int contador = 0;
+    	int i = 0;
+    	List<Double> list = new ArrayList<>();
+    	
+    	
+    	while(contador != 2) {
     		
-    		else {
-    			if(x > y) {
-    				
-    				y++; //Não pode ser Y, tende de ser entre x e y.
-    				while(y != x ) {
-    					if(y % 2 == 1 || y == 1) {
-    						contador += y;
-
-    					}
-    					
-    					y++;
-    				}
-    				
-    				listaDeInteiros.add(contador); 
+    		while(list.size() != 2) {
+    			Double numero = sc.nextDouble();
+    			if(numero < 0 || numero > 10) {
+    				System.out.println("nota invalida");
     			}
-    			
-    			else if(y > x) {
-    				x++; //Analogo ao último comentario.
-    				while(x != y ) {
-    					if(x % 2 == 1 || x == 1) {
-    						contador += x;
-    					}
-    					
-    					
-    					x++;
-    				}
-    				listaDeInteiros.add(contador);
-    			}
-    			
-    			
     			else {
-    				listaDeInteiros.add(contador);
+    				list.add(numero);
+    				contador++;
+    				i++;
     			}
-    		}
-    		
-    		contador = 0;
+    		}   		
     	}
     	
-    	listaDeInteiros.forEach(p1 -> System.out.println(p1));
+    	Double media = (list.get(0) + list.get(1))/2;
+		System.out.println("media = " + media);
+    	
+    	
     }
  
 }
