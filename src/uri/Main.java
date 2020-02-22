@@ -11,33 +11,45 @@ import java.util.Scanner;
 public class Main {
  
     public static void main(String[] args) throws IOException {
-    	Locale.setDefault(Locale.US);
     	Scanner sc = new Scanner(System.in);
-    	
-    	int contador = 0;
-    	int i = 0;
-    	List<Double> list = new ArrayList<>();
+    	List<String> listaTelefonica = new ArrayList<>();
     	
     	
-    	while(contador != 2) {
+    	int teste = sc.nextInt();
+    	
+    	for(int i = 0; i < teste; i++) {
     		
-    		while(list.size() != 2) {
-    			Double numero = sc.nextDouble();
-    			if(numero < 0 || numero > 10) {
-    				System.out.println("nota invalida");
-    			}
-    			else {
-    				list.add(numero);
-    				contador++;
-    				i++;
-    			}
-    		}   		
+        	listaTelefonica.add(sc.next());
     	}
     	
-    	Double media = (list.get(0) + list.get(1))/2;
-		System.out.println("media = " + media);
+    	int resultado = compara(listaTelefonica);
+    	
+    	System.out.println(resultado);
     	
     	
+    	
+    	
+    }
+    
+    
+    public static Integer compara(List<String> list) {
+    	
+    	int contador = 0;
+    	for(int i = 0; i < list.size() - 1; i++) {
+    		
+    		String aux1 = list.get(i + 1);
+    		String aux2 = list.get(0);
+    		
+    		for(int j = 0; j < aux1.length(); j ++){
+    			if(aux1.charAt(j) == aux2.charAt(j)) {
+    				contador++;
+    			}
+    			else if(aux1.charAt(j) != aux2.charAt(j)) {
+    				break;
+    			}
+    		}
+    	}
+    	return contador;
     }
  
 }
